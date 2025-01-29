@@ -3,10 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "index": "node index.js index",
+    "create": "node index.js create",
+    "show": "node index.js show",
+    "update": "node index.js update",
+    "destroy": "node index.js destroy",
+    "score": "node index.js score"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "vitest": "^3.0.4"
+  },
+  "dependencies": {
+    "nanoid": "^3.3.8"
+  }
 }
