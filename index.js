@@ -1,7 +1,7 @@
 const inform = console.log
 const {readJSONFile, writeJSONFile} = require('./src/helper')
 const animals = readJSONFile('./data', 'animals.json')
-const {create, index} = require('./src/animalController')
+const {create, index, show, destroy} = require('./src/animalController')
 
 function run() {
     const action = process.argv[2]
@@ -20,13 +20,15 @@ function run() {
             writeToFile = true
             break
         case 'show':
-            inform(action, animal)
+            const animalView = show(animals, animal)
+            inform(animalView)
             break 
         case 'update':
             inform(action, animal)
             break
         case 'destroy':
-            inform(action, animal)
+            updatedAnimals = destroy(animals, animal)
+            writeToFile = true
             break 
         case 'score':
             inform(action)
