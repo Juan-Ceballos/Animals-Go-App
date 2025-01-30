@@ -33,10 +33,30 @@ function destroy(animals, animalId) {
     }
 }
 
+function edit(animals, animalId, updatedAnimal) {
+    const index = animals.findIndex((animal) => animal.id == animalId)
+    if (index > -1) {
+        animals[index].id = animalId 
+        animals[index].name = updatedAnimal
+        animals[index].points = animalPoints[updatedAnimal] || 10
+        inform('Animal successfully updated')
+        return animals
+    } else {
+        inform('Animal not found. No action taken')
+        return animals
+    }
+}
+
+function score(animals) {
+    return animals.reduce((acc, current) => acc + current.points, 0)
+}
+
 module.exports = {
     create,
     index,
     show,
-    destroy
+    destroy,
+    update,
+    score
 }
 
