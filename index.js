@@ -1,12 +1,13 @@
 const inform = console.log
-const {readJSONFile, writeJSONFile} = require('./src/helpers')
+const {readJSONFile, writeJSONFile} = require('./src/helper')
+const animals = readJSONFile('./data', 'animals.json')
 
 function run() {
     const action = process.argv[2]
     const animal = process.argv[3]
     switch (action) {
         case 'index':
-            inform(action)
+            inform(action, animals)
             break
         case 'create':
             inform(action, animal)
@@ -28,4 +29,3 @@ function run() {
 
     }
 }
-
